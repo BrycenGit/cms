@@ -1,8 +1,8 @@
 
 
-<h1>Author: <%= @user.name %></h1>
-<P><%= @post.body %></P>
-
+<h1>Created by: <%= @user.name %></h1>
+<h4><%= @post.body %></h4>
+<hr>
 <% if @post.comments.any? %>
 <h4>Here are your comments:</h4>
 <ul>
@@ -10,6 +10,7 @@
     <li><%= link_to comment.body, post_comment_path(@post, comment) %></li>
   <% end %>
 </ul>
+<hr>
 <% end %>
 
 <p><%= link_to "Add Comment", new_post_comment_path(@post) %>

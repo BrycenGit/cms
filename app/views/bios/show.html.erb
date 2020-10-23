@@ -1,5 +1,6 @@
-<h1>Author: <%= @user.name %></h1>
+<h1>User: <%= @user.name %></h1>
 <P><%= @bio.body %></P>
+<hr>
 <p><%= link_to "User", user_path(@user) %>
 <p><%= link_to "Edit", edit_user_bio_path(@user, @bio) %>
 <p><%= link_to "Delete", user_bio_path(@user, @bio),

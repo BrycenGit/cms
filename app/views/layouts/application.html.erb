@@ -11,12 +11,17 @@
 
   <body>
     <div class="container">
-      <% if user_signed_in? %>
-      <%= link_to "sign out", destroy_user_session_path, method: :delete%>
-      <hr>
       <%= flash[:alert] %>
       <%= flash[:notice] %>
+      <% if user_signed_in? %>
+      <%= link_to "Home", root_path, class: "btn btn-dark btn-sm" %>
+      <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm"%>
+      
+      
+      <hr>
       <% end %>
+
+
 
       <%= yield %>
     </div>
