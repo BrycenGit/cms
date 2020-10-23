@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @user = current_user
     @comment.destroy
-    redirect_to user_path(@user)
+    redirect_to project_post_path(@post.project, @post)
   end
 
   private

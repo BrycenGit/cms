@@ -1,7 +1,8 @@
 
 
-<h1>Created by: <%= @post.user.name %></h1>
-<h4><%= @post.body %></h4>
+
+<h1>Post: <%= @post.body %></h1>
+<h4>Created by: <%= @post.user.name %></h4>
 <hr>
 <% if @post.comments.any? %>
 <h4>Here are your comments:</h4>

@@ -1,5 +1,6 @@
 <h1>Project: <%= @project.name %></h1>
 <h4>Created by: <%= @user.name %></h4>
+<h4>Description: <%= @project.description %></h4>
 <hr>
 <% if @project.posts.any? %>
   <h4>Here is a list of Posts</h4>
@@ -12,7 +13,7 @@
 <% end %>
 
 
-<P>Description: <%= @project.description %></P>
+
 <p><%= link_to "New Post", new_project_post_path(@project) %>
 <p><%= link_to "Edit", edit_user_project_path(@user, @project) %>
 <p><%= link_to "Delete", user_project_path(@user, @project),

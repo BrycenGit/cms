@@ -29,7 +29,7 @@ class BiosController < ApplicationController
     @bio = Bio.find(params[:id])
     if @bio.update(bio_params)
       flash[:notice] = "bio successfully updated!"
-      redirect_to user_bio_path(@user, @bio)
+      redirect_to user_path(@user)
     else
       render :edit
     end
