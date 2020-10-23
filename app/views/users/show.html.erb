@@ -1,2 +1,21 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<h1>User: <%= @user.name.humanize %><h1>
+
+<% if @user.posts.any? %>
+  <h4>Here are your posts:</h4>
+  <ul>
+  <% @user.posts.each do |post| %>
+    <li><%= post.body %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<P><%= link_to "New Post", new_user_post_path(@user), class: "btn btn-primary btn-sm" %></p>
+
+<P><%= link_to "New Project", new_user_project_path(@user), class: "btn btn-primary btn-sm" %></p>
+
+<P><%= link_to "New Bio", new_user_bio_path(@user), class: "btn btn-primary btn-sm" %></p>
+
+<P><%= link_to "Add Skills", new_user_skill_path(@user), class: "btn btn-primary btn-sm" %></p>

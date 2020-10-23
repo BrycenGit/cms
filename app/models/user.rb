@@ -14,4 +14,5 @@ class User < ApplicationRecord
   has_many :skills, :through => :skill_users
   has_one :bio_user
   has_one :bio, :through => :bio_user
+  validates :name, presence: true
 end
