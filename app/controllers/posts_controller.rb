@@ -14,7 +14,10 @@ class PostsController < ApplicationController
     @user = current_user
     @project = Project.find(params[:project_id])
     @post = @project.posts.new(post_params)
+    @post.user = @user
+    
     if @post.save
+      @project.posts << @post
       flash[:alert] = "Post Added Successfully"
       redirect_to project_path(@project)
     else
