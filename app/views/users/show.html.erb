@@ -10,6 +10,15 @@
   </ul>
 <% end %>
 
+<% if @user.projects.any? %>
+  <h4>Here are your projects:</h4>
+  <ul>
+  <% @user.projects.each do |project| %>
+    <li><%= link_to project.name, user_project_path(@user, project) %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <P><%= link_to "New Post", new_user_post_path(@user), class: "btn btn-primary btn-sm" %></p>
 
 <P><%= link_to "New Project", new_user_project_path(@user), class: "btn btn-primary btn-sm" %></p>
