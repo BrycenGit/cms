@@ -1,5 +1,3 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
 <h1>User: <%= @user.name.humanize %><h1>
 
@@ -7,7 +5,7 @@
   <h4>Here are your posts:</h4>
   <ul>
   <% @user.posts.each do |post| %>
-    <li><%= post.body %></li>
+    <li><%= link_to post.body, user_post_path(@user, post) %></li>
   <% end %>
   </ul>
 <% end %>
