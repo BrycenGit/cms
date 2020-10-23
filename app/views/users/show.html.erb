@@ -1,5 +1,10 @@
 
 <h1>User: <%= @user.name.humanize %></h1>
+<% if @user.admin %>
+  <p>You are an Admin</p>
+<% else %>
+  <p>You are plain ol' User</p>
+<% end %>
 
 <% if @user.posts.any? %>
   <h4>Here are your posts:</h4>

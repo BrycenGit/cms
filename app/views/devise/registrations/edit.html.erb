@@ -31,6 +31,17 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin %><br />
+    <%= f.hidden_field :admin, false %>
+    <%= f.check_box :admin, true %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
