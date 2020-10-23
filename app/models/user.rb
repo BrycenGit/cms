@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :project_users
   has_many :projects, :through => :project_users
+  has_many :post_users
+  has_many :posts, :through => :post_users
   has_many :comment_users
   has_many :comments, :through => :comment_users
   has_many :skill_users
