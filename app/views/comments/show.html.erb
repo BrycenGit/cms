@@ -1,2 +1,8 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<h1>Author: <%= @comment.user.name %></h1>
+<h4>Post: <%= @post.body %>
+<P><%= @comment.body %></P>
+<p><%= link_to "User", user_path(@user) %>
+<p><%= link_to "Edit", edit_post_comment_path(@post, @comment) %>
+<p><%= link_to "Delete", post_comment_path(@post, @comment),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>

@@ -2,6 +2,7 @@
 
 <h1>Author: <%= @user.name %></h1>
 <P><%= @post.body %></P>
+<p><%= link_to "Add Comment", new_post_comment_path(@post) %>
 <p><%= link_to "User", user_path(@user) %>
 <p><%= link_to "Edit", edit_user_post_path(@user, @post) %>
 <p><%= link_to "Delete", user_post_path(@user, @post),

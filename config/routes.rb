@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :bios
   end
+
+  resources :posts do
+    resources :comments
+  end
   
 end
