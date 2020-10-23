@@ -1,5 +1,5 @@
 
-<h1>User: <%= @user.name.humanize %><h1>
+<h1>User: <%= @user.name.humanize %></h1>
 
 <% if @user.posts.any? %>
   <h4>Here are your posts:</h4>
@@ -19,8 +19,17 @@
   </ul>
 <% end %>
 
+<% if @user.skills.any? %>
+  <h4>Here are your skills:</h4>
+  <ul>
+  <% @user.skills.each do |skill| %>
+    <li><%= link_to skill.name, user_skill_path(@user, skill) %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <% if @user.bio %>
-<P><%= link_to @user.bio.body, user_bio_path(@user, @user.bio) %></P>
+  <P><%= link_to @user.bio.body, user_bio_path(@user, @user.bio) %></P>
 <% else %>
 <P><%= link_to "New Bio", new_user_bio_path(@user), class: "btn btn-primary btn-sm" %></p>
 <% end %>

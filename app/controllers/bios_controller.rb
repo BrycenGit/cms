@@ -8,7 +8,7 @@ class BiosController < ApplicationController
 
   def create
     @user = current_user
-    @bio = Bio.new(bio_params)
+    @bio = Bio.create(bio_params)
     @bio.user = @user
     if @bio.save
       flash[:alert] = "bio Added Successfully"
