@@ -19,4 +19,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  resources :projects do
+    resources :posts
+  end
 end

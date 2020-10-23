@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     # @user = @project.project_user.user
-    @user = User.find(params[:user_id])
+    @user = @project.user
   end
 
   def destroy

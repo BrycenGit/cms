@@ -5,33 +5,35 @@ class PostsController < ApplicationController
 
   def new
     @user = current_user
+    @project = Project.find(params[:project_id])
     @post = Post.new
     render :new
   end
 
   def create
     @user = current_user
-    @post = @user.posts.new(post_params)
+    @project = Project.find(params[:project_id])
+    @post = @project.posts.new(post_params)
     if @post.save
       flash[:alert] = "Post Added Successfully"
-      redirect_to user_path(@user)
+      redirect_to project_path(@project)
     else
       render :new
     end
   end
 
   def edit
-    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @post = Post.find(params[:id])
     render :edit
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "post successfully updated!"
-      redirect_to user_post_path(@user, @post)
+      redirect_to project_post_path(@project, @post)
     else
       render :edit
     end
@@ -40,15 +42,15 @@ class PostsController < ApplicationController
   def show
 
     @post = Post.find(params[:id])
-    @user = @post.post_user.user
+    @project = @post.project
     # @user = User.find(params[:user_id])
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @user = current_user
+    @project = @post.project
     @post.destroy
-    redirect_to user_path(@user)
+    redirect_to project_path(@project)
   end
 
   private
