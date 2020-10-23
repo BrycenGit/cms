@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
+    @comment.user = current_user
     if @comment.save
       flash[:alert] = "comment Added Successfully"
       redirect_to post_path(@post)
@@ -38,13 +39,13 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
-    # @user = @comment.comment_user.user
-    @post = post.find(params[:post_id])
+    @user = @comment.user
+    @post = Post.find(params[:post_id])
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @post = post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     @user = current_user
     @comment.destroy
     redirect_to user_path(@user)
