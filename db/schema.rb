@@ -10,15 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_161255) do
+ActiveRecord::Schema.define(version: 2020_10_23_162224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bio_users", force: :cascade do |t|
+    t.bigint "bio_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bio_id"], name: "index_bio_users_on_bio_id"
+    t.index ["user_id"], name: "index_bio_users_on_user_id"
+  end
 
   create_table "bios", force: :cascade do |t|
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comment_projects", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_projects_on_comment_id"
+    t.index ["project_id"], name: "index_comment_projects_on_project_id"
+  end
+
+  create_table "comment_users", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_users_on_comment_id"
+    t.index ["user_id"], name: "index_comment_users_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -27,11 +54,29 @@ ActiveRecord::Schema.define(version: 2020_10_23_161255) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_users", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "skill_users", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_skill_users_on_skill_id"
+    t.index ["user_id"], name: "index_skill_users_on_user_id"
   end
 
   create_table "skills", force: :cascade do |t|
