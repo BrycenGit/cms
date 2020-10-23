@@ -19,10 +19,15 @@
   </ul>
 <% end %>
 
+<% if @user.bio %>
+<P><%= link_to @user.bio.body, user_bio_path(@user, @user.bio) %></P>
+<% else %>
+<P><%= link_to "New Bio", new_user_bio_path(@user), class: "btn btn-primary btn-sm" %></p>
+<% end %>
+
 <P><%= link_to "New Post", new_user_post_path(@user), class: "btn btn-primary btn-sm" %></p>
 
 <P><%= link_to "New Project", new_user_project_path(@user), class: "btn btn-primary btn-sm" %></p>
 
-<P><%= link_to "New Bio", new_user_bio_path(@user), class: "btn btn-primary btn-sm" %></p>
 
 <P><%= link_to "Add Skills", new_user_skill_path(@user), class: "btn btn-primary btn-sm" %></p>

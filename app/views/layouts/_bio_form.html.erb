@@ -1,0 +1,7 @@
+<%= render "layouts/errors", :object => @bio %>
+
+<%= form_for [@user, @bio] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
