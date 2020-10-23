@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+  get 'comments/show'
+  get 'comments/edit'
   get 'bios/new'
   get 'bios/show'
   get 'bios/edit'
