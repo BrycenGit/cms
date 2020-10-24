@@ -1,0 +1,35 @@
+<p>You are an Admin</p>
+<hr>
+<% if @user.bio %>
+  <h4>Bio:</h4>
+  <P><%= link_to @user.bio.body, user_bio_path(@user, @user.bio) %></P>
+  <hr>
+<% end %>
+<% if @user.projects.any? %>
+  <h4>Here are your projects:</h4>
+  <ul>
+  <% @user.projects.each do |project| %>
+    <li><%= link_to project.name, user_project_path(@user, project) %></li>
+  <% end %>
+  </ul>
+<hr>  
+<% end %>
+<% if @user.skills.any? %>
+  <h4>Here are your skills:</h4>
+  <ul>
+  <% @user.skills.each do |skill| %>
+    <li><%= link_to skill.name, user_skill_path(@user, skill) %></li>
+  <% end %>
+  </ul>
+<hr>  
+<% end %>
+<% if @user.bio %>
+<%= link_to "Edit Bio", edit_user_bio_path(@user, @user.bio), class: "btn btn-primary btn-sm" %>
+<% else %>
+<%= link_to "New Bio", new_user_bio_path(@user), class: "btn btn-primary btn-sm" %>
+<% end %>
+
+<%= link_to "New Project", new_user_project_path(@user), class: "btn btn-primary btn-sm" %>
+
+
+<%= link_to "Add Skills", new_user_skill_path(@user), class: "btn btn-primary btn-sm" %>

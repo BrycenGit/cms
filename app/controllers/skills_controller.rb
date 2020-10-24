@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
   def index
   end
 

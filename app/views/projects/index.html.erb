@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+<hr>
+
+<% if Project.all.any? %>
+  <h4>Here are your projects:</h4>
+  <ul>
+  <% Project.all.each do |project| %>
+    <li><%= link_to project.name, project_path(project) %></li>
+  <% end %>
+  </ul>
+<hr>  
+<% end %>

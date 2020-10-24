@@ -1,5 +1,6 @@
 class BiosController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
   def new
     @user = current_user
     @bio = Bio.new
