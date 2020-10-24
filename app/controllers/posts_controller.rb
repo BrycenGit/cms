@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     
     if @post.save
       @project.posts << @post
-      @user.posts << @post
       flash[:alert] = "Post Added Successfully"
       redirect_to project_path(@project)
     else
@@ -58,6 +57,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :user)
   end
 end

@@ -13,16 +13,6 @@
   <hr>
 <% end %>
 
-<% if @user.posts.any? %>
-  <h4>Here are your posts:</h4>
-  <ul>
-  <% @user.posts.each do |post| %>
-    <li><%= link_to post.body, user_post_path(@user, post) %></li>
-  <% end %>
-  </ul>
-<hr>  
-<% end %>
-
 
 <% if @user.projects.any? %>
   <h4>Here are your projects:</h4>

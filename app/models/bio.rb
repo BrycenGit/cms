@@ -1,4 +1,4 @@
 class Bio < ApplicationRecord
-  has_one :bio_user
-  has_one :user, :through => :bio_user
+  belongs_to :user
+  validates :body, presence: true
 end
