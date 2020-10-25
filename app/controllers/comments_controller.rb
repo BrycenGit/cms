@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
   def new
     @user = current_user
     @post = Post.find(params[:post_id])

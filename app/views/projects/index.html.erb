@@ -2,7 +2,7 @@
 <hr>
 
 <% if Project.all.any? %>
-  <h4>Here are your projects:</h4>
+  <h4>Heres a list of projects:</h4>
   <ul>
   <% Project.all.each do |project| %>
     <li><%= link_to project.name, project_path(project) %></li>
