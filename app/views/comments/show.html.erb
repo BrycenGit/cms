@@ -2,9 +2,10 @@
 <h4>Author: <%= @comment.user.name %></h4>
 <h4>Post: <%= link_to @post.body, project_post_path(@post.project, @post) %></h4>
 <hr>
-
-<p><%= link_to "User", user_path(@user) %>
+<P><%= link_to "All Projects", projects_path %></p>
+<% if is_admin? %>
 <p><%= link_to "Edit", edit_post_comment_path(@post, @comment) %>
 <p><%= link_to "Delete", post_comment_path(@post, @comment),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
+<% end %>

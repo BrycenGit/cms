@@ -13,10 +13,12 @@
 <% end %>
 
 
-
+<P><%= link_to "All Projects", projects_path %></p>
 <p><%= link_to "New Post", new_project_post_path(@project) %>
+<% if is_admin? %>
 <p><%= link_to "Edit", edit_user_project_path(@user, @project) %>
 <p><%= link_to "Delete", user_project_path(@user, @project),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
+<% end %>
 

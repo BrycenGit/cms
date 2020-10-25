@@ -5,11 +5,11 @@
   <P><%= link_to @user.bio.body, user_bio_path(@user, @user.bio) %></P>
   <hr>
 <% end %>
-<% if @user.projects.any? %>
+<% if Project.all.any? %>
   <h4>Here are your projects:</h4>
   <ul>
-  <% @user.projects.each do |project| %>
-    <li><%= link_to project.name, user_project_path(@user, project) %></li>
+  <% Project.all.each do |project| %>
+    <li><%= link_to project.name, project_path(project) %></li>
   <% end %>
   </ul>
 <hr>  
